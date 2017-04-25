@@ -31,9 +31,7 @@ class Hello(Resource):
         Resource.__init__(self)
         self.templateLoader = jinja2.FileSystemLoader(searchpath='./templates')
         self.templateEnv = jinja2.Environment(loader=self.templateLoader)
-        userfile = open("users.p", "rb")
-        self.Users = pickle.load(userfile)
-        userfile.close()
+        self.Users = {'test.user': 'password'}
         self.user = None
 
     def getChild(self, name, request):
