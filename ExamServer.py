@@ -19,6 +19,7 @@ class User(object):
         self.id = session
         self.username = None
         self.givenname = None
+        self.lastname = None
 
 
 registerAdapter(User, server.Session, IUser)
