@@ -31,7 +31,8 @@ class Hello(Resource):
         Resource.__init__(self)
         self.templateLoader = jinja2.FileSystemLoader(searchpath='./templates')
         self.templateEnv = jinja2.Environment(loader=self.templateLoader)
-        self.Users = {'test.user': 'password'}
+        self.Users = {'test.user': 'password',
+                      'austin.daniels': 'password'}
         self.user = None
 
     def getChild(self, name, request):
