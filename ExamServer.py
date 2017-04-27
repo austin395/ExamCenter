@@ -43,6 +43,7 @@ class Hello(Resource):
 
     def render_GET(self, request):
         session = request.getSession()
+        print(request)
         self.user = IUser(session)
         if request.uri == '/': return self.root_get(request)
         elif request.uri == '/login': return self.login_get(request)
