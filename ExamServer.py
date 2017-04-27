@@ -1,5 +1,7 @@
 import jinja2
+import os
 from zope.interface import Interface, Attribute, implements
+from twisted.web.static import File
 from twisted.python.components import registerAdapter
 from twisted.web.util import redirectTo
 from twisted.internet import reactor
@@ -31,6 +33,7 @@ class Hello(Resource):
         Resource.__init__(self)
         self.templateLoader = jinja2.FileSystemLoader(searchpath='./templates')
         self.templateEnv = jinja2.Environment(loader=self.templateLoader)
+        self.serverRoot = os.getcwd()
         self.Users = {'test.user': 'password',
                       'austin.daniels': 'password'}
         self.user = None
@@ -41,9 +44,10 @@ class Hello(Resource):
     def render_GET(self, request):
         session = request.getSession()
         self.user = IUser(session)
-        print(self.user.username)
+        print(request)
         if request.uri == '/': return self.root_get(request)
         elif request.uri == '/login': return self.login_get(request)
+        elif request.uri == '/images/cyber.jpg': return File.render_GET(File('/home/socrates/PycharmProjects/ExamCenter/templates/images/cyber.jpg'), request)
         elif request.uri == '/logout': return self.logout_get(request)
         elif request.uri == '/{0}/home'.format(self.user.username): return self.home_get(request)
         else: return self.page_not_found(request)
