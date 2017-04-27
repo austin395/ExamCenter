@@ -44,7 +44,6 @@ class Hello(Resource):
     def render_GET(self, request):
         session = request.getSession()
         self.user = IUser(session)
-        print(request)
         if request.uri == '/': return self.root_get(request)
         elif request.uri == '/login': return self.login_get(request)
         elif request.uri == '/images/cyber.jpg': return File.render_GET(File('/home/socrates/PycharmProjects/ExamCenter/templates/images/cyber.jpg'), request)
@@ -76,6 +75,7 @@ class Hello(Resource):
         return str(self.templateEnv.get_template('login.html').render())
 
     def login_post(self, request):
+        print(request)
         if request.args["username"][0] in self.Users:
             if request.args["password"][0] == self.Users[request.args["username"][0]]:
                 self.user.username = request.args["username"][0]
