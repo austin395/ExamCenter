@@ -46,7 +46,7 @@ class Hello(Resource):
         self.user = IUser(session)
         if request.uri == '/': return self.root_get(request)
         elif request.uri == '/login': return self.login_get(request)
-        elif request.uri == '/images/cyber.jpg': return File.render_GET(File(self.ServerRoot + '/templates/images/cyber.jpg'), request)
+        elif request.uri == '/images/cyber.jpg': return File.render_GET(File('templates/images/cyber.jpg'), request)
         elif request.uri == '/logout': return self.logout_get(request)
         elif request.uri == '/{0}/home'.format(self.user.username): return self.home_get(request)
         else: return self.page_not_found(request)
