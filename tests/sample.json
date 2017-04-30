@@ -1,0 +1,38 @@
+[
+    {
+        "question": "what is 2 + 2",
+        "correct_ans": "4",
+        "wrong_ans": ["2", "3", "5"],
+        "subject": "math"
+    },
+    {
+        "question": "what is 2 + 3",
+        "correct_ans": "5",
+        "wrong_ans": ["2", "3", "4"],
+        "subject": "math"
+    },
+    {
+        "question": "what is 3 + 3",
+        "correct_ans": "6",
+        "wrong_ans": ["5", "3", "4"],
+        "subject": "math"
+    },
+    {
+        "question": "what is 4 + 3",
+        "correct_ans": "7",
+        "wrong_ans": ["6", "5", "4"],
+        "subject": "math"
+    },
+    {
+        "question": "what is 5 + 3",
+        "correct_ans": "8",
+        "wrong_ans": ["9", "7", "10"],
+        "subject": "math"
+    },
+    {
+        "question": "what is 10 + 3",
+        "correct_ans": "13",
+        "wrong_ans": ["12", "9", "18"],
+        "subject": "math"
+    }
+]

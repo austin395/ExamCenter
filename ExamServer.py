@@ -1,5 +1,7 @@
 import jinja2
 import os
+import random
+import json
 from zope.interface import Interface, Attribute, implements
 from twisted.web.static import File
 from twisted.python.components import registerAdapter
@@ -22,6 +24,7 @@ class User(object):
         self.username = None
         self.givenname = None
         self.lastname = None
+        self.currenttest = None
 
 
 registerAdapter(User, server.Session, IUser)
@@ -43,13 +46,13 @@ class Hello(Resource):
 
     def render_GET(self, request):
         session = request.getSession()
-        print(request)
         self.user = IUser(session)
         if request.uri == '/': return self.root_get(request)
         elif request.uri == '/login': return self.login_get(request)
         elif request.uri == '/images/cyber.jpg': return File.render_GET(File('templates/images/cyber.jpg'), request)
         elif request.uri == '/logout': return self.logout_get(request)
         elif request.uri == '/{0}/home'.format(self.user.username): return self.home_get(request)
+        elif request.uri == '/take_test': return self.take_test_get(request)
         else: return self.page_not_found(request)
 
     def render_POST(self, request):
@@ -91,6 +94,25 @@ class Hello(Resource):
     # /user/home
     def home_get(self, request):
         return str(self.templateEnv.get_template('home.html').render(user=self.user))
+
+    def take_test_get(self, request):
+        json_data = open('tests/sample.json')
+        questions = json.loads(json_data.read())
+        json_data.close()
+        random.shuffle(questions)
+        self.user.currenttest = questions[:5]
+        self.user.currentquestion = 0
+        return self.render_question()
+
+
+    def render_question(self):
+        question = self.user.currenttest[self.user.currentquestion]['question']
+        answers = [self.user.currenttest[self.user.currentquestion]['correct_ans']]
+        for wans in self.user.currenttest[self.user.currentquestion]['wrong_ans']:
+            answers.append(wans)
+            random.shuffle(answers)
+        return str(self.templateEnv.get_template('question.html').render(question=question, answers=answers))
+
 
     # 404 error
     def page_not_found(self, request):
