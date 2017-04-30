@@ -9,7 +9,6 @@ from twisted.web.util import redirectTo
 from twisted.internet import reactor
 from twisted.web import server
 from twisted.web.resource import Resource
-import cPickle as pickle
 
 
 class IUser(Interface):
