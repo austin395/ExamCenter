@@ -1,7 +1,91 @@
-{% extends "base.html" %}
-{% block content %}
-<div><a href="/take_test">take test</a></div>
-{% endblock %}
+<html>
+  <head>
+    {% if user %}
+    <title>{{ user.username }} - Hub Academy</title>
+    {% else %}
+    <title>Welcome to Hub Academy</title>
+    {% endif %}
+  </head>
+  <body>
+    <a href="/logout" class="logout">Logout</a>
+    <a href="/take_test" class="test">Take test</a>
+    <a href="/Subjects" class="Subjects">Subjects</a>
+    <a href="/Previous_scores" class="Previous_scores">Previous Scores</a>
+    <a href="/Back" class="Back">Back</a>
+  </body>
+</html>
 
+<style>
+    .logout {
+    background-color:
+    #FF0000; /* Red background */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px 100px;
+}
+    .logout:hover span:after {
+    opacity: 1;
+    right: 0;
+}
+</style>
 
+<style>
+    .test {
+    background-color:
+    #0000FF; /* Blue background */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px 200px;
+</style>
 
+<style>
+    .Subjects {
+    background-color:
+    #0000FF; /* Blue background */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px 100px;
+</style>
+
+<style>
+    .Previous_scores {
+    background-color:
+    #0000FF; /* Blue background */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px 100px;
+</style>
+
+<style>
+    .Back {
+    background-color:
+    #0000FF; /* Blue background */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px 100px;
+</style>

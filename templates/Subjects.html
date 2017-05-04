@@ -1,0 +1,17 @@
+<html>
+<head>
+    {% if user %}
+    <title>{{ user.username }}  Subjects</title>
+    {% else %}
+    <title>Welcome to Hub Academy</title>
+    {% endif %}
+</head>
+<body>
+    <a href="/logout" class="logout">Logout</a>
+    <a href="/Security" class="Security">Security +</a>
+    <a href="/Network" class="Network">Route and Switching</a>
+    <a href="/Something" class="Something">Something</a>
+    <a href="/Back" class="Back">Back</a>
+
+</body>
+</html>

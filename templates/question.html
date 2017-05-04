@@ -11,7 +11,7 @@
 
 <p class="question">{{ question }}</p>
 
-<form name="login" action="test" method="post" accept-charset="utf-8">
+<form name="question" action="test" method="post" accept-charset="utf-8">
   <ul>
     {% for answer in answers %}
     <input type="radio" name="q1" value={{ answer }} id={{ answer }}><label for="q1a">{{ answer }}</label><br/>
@@ -20,3 +20,6 @@
     <input type="submit" value="Next Question"></li>
   </ul>
 </form>
+
+
+
