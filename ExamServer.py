@@ -52,6 +52,8 @@ class Hello(Resource):
         elif request.uri == '/logout': return self.logout_get(request)
         elif request.uri == '/{0}/home'.format(self.user.username): return self.home_get(request)
         elif request.uri == '/take_test': return self.take_test_get(request)
+        elif request.uri == '/Subjects': return self.Subjects_get(request)
+        elif request.uri == '/Previous_Scores': return self.Previous_Scores_get(request)
         else: return self.page_not_found(request)
 
     def render_POST(self, request):
@@ -93,6 +95,12 @@ class Hello(Resource):
     # /user/home
     def home_get(self, request):
         return str(self.templateEnv.get_template('home.html').render(user=self.user))
+
+    def Previous_Scores_get(self, request):
+        return str(self.templateEnv.get_template('Previous_scores.html').render(user=self.user))
+
+    def Subjects_get(self, request):
+        return str(self.templateEnv.get_template('Subjects.html').render(user=self.user))
 
     def take_test_get(self, request):
         json_data = open('tests/sample.json')

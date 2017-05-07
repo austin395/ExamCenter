@@ -11,7 +11,87 @@
     <a href="/Security" class="Security">Security +</a>
     <a href="/Network" class="Network">Route and Switching</a>
     <a href="/Something" class="Something">Something</a>
-    <a href="/Back" class="Back">Back</a>
+
+<button class="goBack" type="button" onclick="history.go(-1)">Go Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
 
 </body>
 </html>
+
+<style type="text/css">
+button.goBack{
+width:auto;
+font:16px Trebuchet MS, sans-serif;     /* Font size and family*/
+color:white;     /* Font color */
+background:#000FFF;     /* Background color */
+margin:0;
+padding:15px 32px;     /* First value is top/bottom padding & the second is left/right. Increase/decrease as required */
+border:none;
+-moz-border-radius:7px;
+-webkit-border-radius:7px;     /* Corner radius. Change all three values */
+border-radius:15px 100px;
+}
+</style>
+
+<style>
+    .Security {
+    background-color:
+    #0000FF; /* Blue background */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px 100px;
+</style>
+
+<style>
+    .Network {
+    background-color:
+    #0000FF; /* Blue background */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px 100px;
+</style>
+
+<style>
+    .Something {
+    background-color:
+    #0000FF; /* Blue background */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px 100px;
+</style>
+
+<style>
+    .Logout {
+    background-color:
+    #FF0000; /* Red background */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 15px 100px;
+</style>
+
+
